@@ -27,74 +27,56 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
 
-            Column{
+            Column(
+                modifier = Modifier
+                    .background(color = Color(color = 0xFFF2F2F2))
+                    .fillMaxSize()
+                    .verticalScroll(rememberScrollState())
+            ) {
+                Image(
+                    painterResource(R.drawable.happy_meal_small),
+                    contentDescription = "",
+                    modifier = Modifier.height(300.dp),
+                    contentScale = ContentScale.Crop,
+                )
                 Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(200.dp)
-                        .border(border = BorderStroke(width = 1.dp, color = Color.Black)),
-                    verticalArrangement = Arrangement.Center
-                ){
+                    modifier = Modifier.padding(16.dp),
+                ) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Text(
+                            text = "Happy meal",
+                            style = TextStyle(
+                                fontSize = 26.sp
+                            )
+                        )
+                        Text(
+                            text = "$5.99",
+                            color = Color(color = 0xFF85bb65),
+                            style = TextStyle(
+                                fontSize = 17.sp
+                            ),
+                            modifier = Modifier.align(Alignment.CenterVertically)
+                        )
+                    }
+                    Spacer(modifier = Modifier.padding(top = 10.dp))
                     Text(
-                        text = "ITEM 1",
+                        text = "800 calories",
+                        style = TextStyle(
+                            fontSize = 17.sp
+                        )
+                    )
+                    Spacer(modifier = Modifier.padding(top = 10.dp))
+                    Button(
+                        onClick = {},
                         modifier = Modifier.align(Alignment.CenterHorizontally)
-                    )
-                    Text(
-                        text = "ITEM 2",
-                        modifier = Modifier.align(Alignment.CenterHorizontally)
-                    )
-                }
-                Row (
-                    modifier = Modifier
-                        .width(200.dp)
-                        .height(200.dp)
-                        .border(border = BorderStroke(width = 1.dp, color = Color.Black)),
-                    horizontalArrangement = Arrangement.Center
-                ){
-                    Text(
-                        text = "ITEM 3",
-                        modifier = Modifier.align(Alignment.CenterVertically)
-                    )
+                    ){
+                        Text(text = "ORDER NOW")
+                    }
                 }
             }
-            //Column(
-            //    modifier = Modifier
-            //        .background(color = Color(color = 0xFFF2F2F2))
-            //        .fillMaxSize()
-            //        .verticalScroll(rememberScrollState())
-            //) {
-            //    Image(
-            //        painterResource(R.drawable.happy_meal_small),
-            //        contentDescription = "",
-            //        modifier = Modifier.height(300.dp),
-            //        contentScale = ContentScale.Crop,
-            //    )
-            //    Column(
-            //        modifier = Modifier.padding(16.dp),
-            //    ) {
-            //        Text(
-            //            text = "Happy meal",
-            //            style = TextStyle(
-            //               fontSize = 26.sp
-            //            )
-            //        )
-            //        Spacer(modifier = Modifier.padding(top = 10.dp))
-            //        Text(
-            //            text = "800 calories",
-            //            style = TextStyle(
-            //                fontSize = 17.sp
-            //            )
-            //        )
-            //        Spacer(modifier = Modifier.padding(top = 10.dp))
-            //        Text(
-            //            text = "$5.99",
-            //            color = Color(color = 0xFF85bb65),
-            //            style = TextStyle(
-            //                fontSize = 17.sp
-            //            )
-            //        )
-            //    }
-            //}
         }
     }
 }
